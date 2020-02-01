@@ -3,6 +3,7 @@ from flask import Blueprint
 from flask_restful import Api
 from . import info
 from . import sprav
+from . import logic
 
 
 RestApiBP = Blueprint('restapi', __name__,
@@ -13,6 +14,8 @@ RestApi.add_resource(info.Info, '/info/<string:param_name>','/info')
 
 RestApi.add_resource(sprav.SprMission, '/sprav/mission')
 RestApi.add_resource(sprav.SprSpecType, '/sprav/spectypes')
+
+RestApi.add_resource(logic.CalcStep, '/step')
 
 
 #RestApi.add_resource(info.Info, '/info')

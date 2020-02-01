@@ -27,5 +27,10 @@ class Mission(Base):
         m2 = sess.query(Mission).first()
         return self.dmp.dump(m2)
 
+    def getMissionSpec(self):
+        sess = db_session()
+        m2 = sess.query(Mission).first()
+        return m2.start_specs
+
 mission = Mission()
 

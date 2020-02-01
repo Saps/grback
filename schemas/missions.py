@@ -8,6 +8,6 @@ class SMission(Schema):
     description = fields.String()
     pic = fields.String()
     start_param = fields.String()
-    start_specs = fields.String()
+    #start_specs = fields.String()
 
 
