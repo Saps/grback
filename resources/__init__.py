@@ -8,7 +8,8 @@ RestApiBP = Blueprint('restapi', __name__,
                       template_folder='templates')
 RestApi = Api(RestApiBP)
 
-RestApi.add_resource(info.Info, '/info/<string:param_name>')
+RestApi.add_resource(info.Info, '/info/<string:param_name>','/info')
+#RestApi.add_resource(info.Info, '/info')
 
 #RestApi.add_resource(user.UserLogin, '/user/login')
 #RestApi.add_resource(user.UserLoginVK, '/user/login/vk/')
