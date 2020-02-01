@@ -2,6 +2,7 @@
 from flask import Blueprint
 from flask_restful import Api
 from . import info
+from . import sprav
 
 
 RestApiBP = Blueprint('restapi', __name__,
@@ -9,6 +10,10 @@ RestApiBP = Blueprint('restapi', __name__,
 RestApi = Api(RestApiBP)
 
 RestApi.add_resource(info.Info, '/info/<string:param_name>','/info')
+
+RestApi.add_resource(sprav.SprMission, '/sprav/mission')
+
+
 #RestApi.add_resource(info.Info, '/info')
 
 #RestApi.add_resource(user.UserLogin, '/user/login')
