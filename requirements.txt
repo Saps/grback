@@ -1,0 +1,13 @@
+jsonschema
+flask
+flask_restful
+Flask-HTTPAuth
+flask-sqlalchemy
+Flask-Login
+Flask-OpenID
+sqlalchemy
+bson
+requests
+marshmallow
+flask-ext
+flask-cors
