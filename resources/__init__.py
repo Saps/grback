@@ -12,6 +12,7 @@ RestApi = Api(RestApiBP)
 RestApi.add_resource(info.Info, '/info/<string:param_name>','/info')
 
 RestApi.add_resource(sprav.SprMission, '/sprav/mission')
+RestApi.add_resource(sprav.SprSpecType, '/sprav/spectypes')
 
 
 #RestApi.add_resource(info.Info, '/info')
