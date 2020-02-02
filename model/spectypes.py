@@ -21,7 +21,7 @@ class SpecType(Base):
 
     def getList(self):
         sess = db_session()
-        m2 = list(sess.query(SpecType).all())
+        m2 = list(sess.query(SpecType).order_by(SpecType.res_id.desc()).all())
         for id, item in enumerate(m2):
             m2[id].muts = specmut.get_specmuts_for_st(item.res_id)
 
