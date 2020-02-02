@@ -67,9 +67,9 @@ class Calculator:
         item["specs"]["T0002"]["cnt"] = self.spec2
         item["specs"]["T0003"]["cnt"] = self.spec3
 
-        self.atm = min(max(self.atm, 0),100)
-        self.terr = min(max(self.terr, 0), 100)
-        self.voda = min(max(self.voda, 0), 100)
+        self.atm = round(min(max(self.atm, 0),100))
+        self.terr = round(min(max(self.terr, 0), 100))
+        self.voda = round(min(max(self.voda, 0), 100))
         item["params"] = {}
         item["params"]["E0001"] = self.atm
         item["params"]["E0002"] = self.voda
@@ -79,33 +79,39 @@ class Calculator:
     #################################################################
     # бабочки
     def countT0001(self, cnt):
-        self.atm = self.atm + 1*self.spec1
-        self.terr = self.terr + 2*self.spec1
-        for mut in self.spec1muts:
-            if mut.res_id in cnt:
-                self.spec1 = self.spec1 + mut.pop
-                self.atm = self.atm + mut.atm*self.spec1
-                self.terr = self.terr + mut.terr*self.spec1
-                self.voda = self.voda + mut.voda*self.spec1
+        if len(cnt)==0:
+            self.atm = self.atm + 1*self.spec1/10
+            self.terr = self.terr + 2*self.spec1/10
+        else:
+            for mut in self.spec1muts:
+                if mut.res_id in cnt:
+                    self.spec1 = self.spec1 + mut.pop
+                    self.atm = self.atm + mut.atm*self.spec1/10
+                    self.terr = self.terr + mut.terr*self.spec1/10
+                    self.voda = self.voda + mut.voda*self.spec1/10
 
     # крабы
     def countT0002(self, cnt):
-        self.voda = self.voda + 2*self.spec2
-        self.terr = self.terr + 1*self.spec2
-        for mut in self.spec2muts:
-            if mut.res_id in cnt:
-                self.spec2 = self.spec2 + mut.pop
-                self.atm = self.atm + mut.atm*self.spec2
-                self.terr = self.terr + mut.terr*self.spec2
-                self.voda = self.voda + mut.voda*self.spec2
+        if len(cnt)==0:
+            self.voda = self.voda + 2*self.spec2/10
+            self.terr = self.terr + 1*self.spec2/10
+        else:
+            for mut in self.spec2muts:
+                if mut.res_id in cnt:
+                    self.spec2 = self.spec2 + mut.pop
+                    self.atm = self.atm + mut.atm*self.spec2/10
+                    self.terr = self.terr + mut.terr*self.spec2/10
+                    self.voda = self.voda + mut.voda*self.spec2/10
 
     # водоросли
     def countT0003(self, cnt):
-        self.atm = self.atm + 2*self.spec3
-        self.voda = self.voda + self.spec3
-        for mut in self.spec3muts:
-            if mut.res_id in cnt:
-                self.spec3 = self.spec3 + mut.pop
-                self.atm = self.atm + mut.atm*self.spec3
-                self.terr = self.terr + mut.terr*self.spec3
-                self.voda = self.voda + mut.voda*self.spec3
+        if len(cnt)==0:
+            self.atm = self.atm + 2*self.spec3/10
+            self.voda = self.voda + self.spec3/10
+        else:
+            for mut in self.spec3muts:
+                if mut.res_id in cnt:
+                    self.spec3 = self.spec3 + mut.pop
+                    self.atm = self.atm + mut.atm*self.spec3/10
+                    self.terr = self.terr + mut.terr*self.spec3/10
+                    self.voda = self.voda + mut.voda*self.spec3/10
