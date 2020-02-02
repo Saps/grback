@@ -80,8 +80,8 @@ class Calculator:
     # бабочки
     def countT0001(self, cnt):
         if len(cnt)==0:
-            self.atm = self.atm + 1*self.spec1/3
-            self.terr = self.terr + 2*self.spec1/3
+            self.atm = self.atm + self.spec1/3
+            self.voda = self.voda - self.spec1/3
         else:
             for mut in self.spec1muts:
                 if mut.res_id in cnt:
@@ -93,8 +93,8 @@ class Calculator:
     # крабы
     def countT0002(self, cnt):
         if len(cnt)==0:
-            self.voda = self.voda + 2*self.spec2/3
-            self.terr = self.terr + 1*self.spec2/3
+            self.terr = self.terr - self.spec2 / 3
+            self.voda = self.voda + self.spec2 / 3
         else:
             for mut in self.spec2muts:
                 if mut.res_id in cnt:
@@ -106,8 +106,8 @@ class Calculator:
     # водоросли
     def countT0003(self, cnt):
         if len(cnt)==0:
-            self.atm = self.atm + 2*self.spec3/3
-            self.voda = self.voda + self.spec3/3
+            self.atm = self.atm - self.spec3 / 3
+            self.terr = self.terr + self.spec3 / 3
         else:
             for mut in self.spec3muts:
                 if mut.res_id in cnt:
