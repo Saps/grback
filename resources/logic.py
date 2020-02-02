@@ -49,7 +49,7 @@ class Calculator:
 
         if "energy" not in result[len(arr) - 1]:
             result[len(arr) - 1]["energy"] = 0
-        result[len(arr) - 1]["energy"] = result[len(arr) - 1]["energy"] + 40
+        result[len(arr) - 1]["energy"] = result[len(arr) - 1]["energy"] + 20
 
         return result
 

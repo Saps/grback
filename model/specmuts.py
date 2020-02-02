@@ -27,7 +27,7 @@ class SpecMut(Base):
 
 
     def get_specmuts_for_st(self, st_id):
-        result = db_session().query(SpecMut).filter(SpecMut.spec_type_id == st_id).all()
+        result = db_session().query(SpecMut).filter(SpecMut.spec_type_id == st_id).order_by(SpecMut.res_id).all()
         return list(result)
 
 
