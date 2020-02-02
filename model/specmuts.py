@@ -18,6 +18,10 @@ class SpecMut(Base):
     descr = Column(String)
     pic = Column(String)
     price = Column(Float)
+    atm = Column(Integer)
+    terr = Column(Integer)
+    voda = Column(Integer)
+    pop = Column(Integer)
 
     dmp = s1.SSpecMut()
 
